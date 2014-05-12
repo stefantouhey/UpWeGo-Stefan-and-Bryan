@@ -62,6 +62,8 @@ public class PlatformController implements Controller {
 	private double groundObjectHeight;
 	private double groundObjectWidth;
 	private double outOfGround;
+	private double footY;
+	private double platformTop;
 
 	/**
 	 * Creates the controller with the given parameters. The default
@@ -150,6 +152,8 @@ public class PlatformController implements Controller {
 			groundObjectY = groundObject.getY(); 
 			groundObjectHeight = groundObject.getHeight();
 			groundObjectWidth = groundObject.getWidth();
+			footY = target.getX()+(target.getHeight()/2);
+			platformTop = groundObject.getY()+(groundObject.getHeight()/2);
 			
 			if ((targetY +    (targetHeight / 2)) < (groundObjectY + (groundObjectHeight / 2) - 50)
 					&& (targetY + (targetHeight / 2)) > (groundObjectY - (groundObjectHeight / 2)) + 5) {
