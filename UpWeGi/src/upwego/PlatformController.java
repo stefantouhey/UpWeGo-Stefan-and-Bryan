@@ -141,8 +141,7 @@ public class PlatformController implements Controller {
 		for (Platform platform : Platforms) {
 			GObject groundObject = (GObject) platform;
 			if (target.hitTest(groundObject)) {
-				onPlatform = true;
-				break;
+				
 			}
 			targetX = target.getX();
 			targetY = target.getY();
@@ -155,26 +154,31 @@ public class PlatformController implements Controller {
 			footY = target.getX()+(target.getHeight()/2);
 			platformTop = groundObject.getY()+(groundObject.getHeight()/2);
 			
-			if ((targetY +    (targetHeight / 2)) < (groundObjectY + (groundObjectHeight / 2) - 50)
-					&& (targetY + (targetHeight / 2)) > (groundObjectY - (groundObjectHeight / 2)) + 5) {
-
-				if ((targetX - (targetWidth / 2)) < (groundObjectX + (groundObjectWidth / 2) - 20)
-						&& (targetX + (targetWidth / 2)) > (groundObjectX - (groundObjectWidth / 2) + 20)) {
-
-					outOfGround = -(targetY + (targetHeight / 2))
-							+ (groundObjectY - (groundObjectHeight / 2));
-
-				} else if ((targetX - (targetWidth / 2)) < (groundObjectX + (groundObjectWidth / 2))
-						&& (targetX + (targetWidth / 2)) > (groundObjectX - (groundObjectWidth / 2))) {
-
-					vx = 0;
-					onPlatform = true;
-				}
+//			if ((targetY +    (targetHeight / 2)) < (groundObjectY + (groundObjectHeight / 2) - 50)
+//					&& (targetY + (targetHeight / 2)) > (groundObjectY - (groundObjectHeight / 2)) + 5) {
+//
+//				if ((targetX - (targetWidth / 2)) < (groundObjectX + (groundObjectWidth / 2) - 20)
+//						&& (targetX + (targetWidth / 2)) > (groundObjectX - (groundObjectWidth / 2) + 20)) {
+//
+//					outOfGround = -(targetY + (targetHeight / 2))
+//							+ (groundObjectY - (groundObjectHeight / 2));
+//
+//				} else if ((targetX - (targetWidth / 2)) < (groundObjectX + (groundObjectWidth / 2))
+//						&& (targetX + (targetWidth / 2)) > (groundObjectX - (groundObjectWidth / 2))) {
+//
+//					vx = 0;
+//					onPlatform = true;
+//				}
+			
+			onPlatform = true;
+			break;
 			}
 
+		
+		
+		if(footY > platformTop){
+			footY+=10;
 		}
-		
-		
 		
 
 		if (onPlatform) {
@@ -199,8 +203,8 @@ public class PlatformController implements Controller {
 
 		target.setLocation(target.getX() - (vx*maxSpeed), target.getY() + vy+outOfGround);
 		
-	}
 	
+}
 	
 	
 	
