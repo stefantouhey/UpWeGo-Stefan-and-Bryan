@@ -13,7 +13,7 @@ import jgame.listener.FrameListener;
 public class GameView extends GContainer {
 	
 	public PlatformController protmove= new PlatformController(
-			PlatformControlScheme.ARROWS_SPACE, 1, -20, 3);
+			PlatformControlScheme.ARROWS_SPACE, 1, -20, 6);
 	int platNumber=2;
 	
 	public GameView() {
