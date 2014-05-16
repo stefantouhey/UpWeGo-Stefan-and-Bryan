@@ -1,4 +1,6 @@
 package upwego;
+import java.util.ArrayList;
+
 import upwego.UpWeGo;
 import jgame.Context;
 import jgame.GContainer;
@@ -48,17 +50,16 @@ public class GameView extends GContainer {
 		
 		background.addListener(backgroundmovement);
 		
+		ArrayList bob = new ArrayList();
 
-		GObject[] Array;
-		Array = new GObject[11];
 		for(int i=0; i<platNumber; i++)
 			{
-			Array[i] = new Platform();
+			bob.add(new Platform());
 
 			}
 			
-			addAt(Array[0],320, 425);
-			addAt(Array[1], 400,600);
+			addAt((GObject) bob.get(0),320, 425);
+			addAt((GObject) bob.get(1), 400,600);
 
 
 		
