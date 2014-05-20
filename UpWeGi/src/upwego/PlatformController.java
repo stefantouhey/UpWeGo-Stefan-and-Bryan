@@ -142,6 +142,7 @@ public class PlatformController implements Controller {
 			GObject groundObject = (GObject) platform;
 			if (target.hitTest(groundObject)) {
 				onPlatform = true;
+				break;
 			}
 			targetX = target.getX();
 			targetY = target.getY();
@@ -172,7 +173,7 @@ public class PlatformController implements Controller {
 //				}
 			
 			
-			break;
+			
 			}
 		
 		if(platformTop <= footY-25){

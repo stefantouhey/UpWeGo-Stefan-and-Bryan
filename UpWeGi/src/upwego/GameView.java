@@ -8,13 +8,16 @@ import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.FrameListener;
+import jgame.listener.TimerListener;
 
 
 public class GameView extends GContainer {
 	
 	public PlatformController protmove= new PlatformController(
-			PlatformControlScheme.ARROWS_SPACE, 1, -20, 3);
-	int platNumber=2;
+			PlatformControlScheme.ARROWS_SPACE, 1, -30, 3);
+	int platNumber=50;
+	public ArrayList<Platform> bob = new ArrayList();
+	int k = 2;
 	
 	public GameView() {
 		
@@ -50,7 +53,7 @@ public class GameView extends GContainer {
 		
 		background.addListener(backgroundmovement);
 		
-		ArrayList bob = new ArrayList();
+		
 
 		for(int i=0; i<platNumber; i++)
 			{
@@ -59,7 +62,18 @@ public class GameView extends GContainer {
 			}
 			
 			addAt((GObject) bob.get(0),320, 425);
-			addAt((GObject) bob.get(1), 400,600);
+			addAt((GObject) bob.get(1), 400,225);
+			
+			TimerListener platSpawn = new TimerListener(30) {
+
+				@Override
+				public void invoke(GObject target, Context context) {
+					// TODO Auto-generated method stub
+					addAt((GObject)bob.get(k), Math.random()*(640-141)+141,0);
+					k++;
+				}
+				
+			};
 
 
 		
@@ -67,6 +81,7 @@ public class GameView extends GContainer {
 		addAtCenter(THEMAN);
 		THEMAN.addController(protmove);
 		THEMAN.addListener(Respawn);
+		addListener(platSpawn);
 		
 		
 	
