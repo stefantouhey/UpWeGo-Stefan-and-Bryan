@@ -5,6 +5,7 @@ import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
+import jgame.listener.BoundaryRemovalListener;
 import jgame.listener.FrameListener;
 
 public class Platform extends GSprite implements Floor {
@@ -25,7 +26,10 @@ public class Platform extends GSprite implements Floor {
 		
 	};
 	addListener(platformmovement);
-
+	BoundaryRemovalListener brl = new BoundaryRemovalListener();
+	addListener(brl);
+		
+	
 	
 	}
 	
