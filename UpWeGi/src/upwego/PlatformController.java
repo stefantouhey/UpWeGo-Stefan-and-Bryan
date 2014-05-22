@@ -145,7 +145,7 @@ public class PlatformController implements Controller {
 			if (target.hitTest(groundObject)) {
 				onPlatform = true;
 				if(platformTop <= footY){
-					target.setLocation(target.getX(), platformTop);
+					target.setLocation(target.getX(), groundObject.getY()-(groundObject.getHeight()/2));
 					System.out.println(target.getY());
 				break;
 				

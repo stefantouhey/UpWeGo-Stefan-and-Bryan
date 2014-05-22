@@ -6,7 +6,7 @@ import jgame.GRootContainer;
 import jgame.Game;
 import jgame.ImageCache;
 import jgame.SoundManager;
-
+ 
 public class UpWeGo extends Game {
 
 	public static void main(String[] args) {
