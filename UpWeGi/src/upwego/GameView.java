@@ -15,8 +15,8 @@ public class GameView extends GContainer {
 	
 	public PlatformController protmove= new PlatformController(
 			PlatformControlScheme.ARROWS_SPACE, 1, -30, 3);
-	int platNumber=50;
-	public ArrayList<Platform> bob = new ArrayList();
+	int platNumber=100;
+	public ArrayList<Platform> bob = new ArrayList<Platform>();
 	int k = 2;
 	
 	public GameView() {
