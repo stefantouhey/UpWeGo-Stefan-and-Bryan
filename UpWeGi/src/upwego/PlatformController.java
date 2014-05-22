@@ -144,7 +144,11 @@ public class PlatformController implements Controller {
 			GObject groundObject = (GObject) platform;
 			if (target.hitTest(groundObject)) {
 				onPlatform = true;
+				if(platformTop <= footY){
+					target.setLocation(target.getX(), platformTop);
+					System.out.println(target.getY());
 				break;
+				
 			}
 			targetX = target.getX();
 			targetY = target.getY();
@@ -180,9 +184,7 @@ public class PlatformController implements Controller {
 			
 			}
 		
-		if(platformTop <= footY-25){
-			target.setLocation(target.getX(), target.getY()+platformTop-footY);
-			System.out.println(target.getY());
+
 
 		}
 		
