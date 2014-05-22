@@ -29,13 +29,13 @@ public class GameView extends GContainer {
 
 		
 		final MovingBackground background = new MovingBackground();
-		addAtCenter(background);
+		addAt(background,0,-640);
 		FrameListener backgroundmovement = new FrameListener() {
 
 			@Override
 			public void invoke(GObject target, Context context) {
 				// TODO Auto-generated method stub
-				target.setLocation(0, target.getY() - protmove.getvy());
+				target.setLocation(0, -30 - protmove.getvy());
 			}
 			
 		};
