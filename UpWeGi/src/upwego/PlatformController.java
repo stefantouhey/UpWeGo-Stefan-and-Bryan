@@ -142,15 +142,7 @@ public class PlatformController implements Controller {
 
 		for (Platform platform : Platforms) {
 			GObject groundObject = (GObject) platform;
-			if (target.hitTest(groundObject)) {
-				onPlatform = true;
-				if(platformTop <= footY){
-					target.setLocation(target.getX(), groundObject.getY()-(groundObject.getHeight()+target.getHeight())/2);
-					System.out.println(target.getY());
-				}
-				break;
-				
-			}
+			
 			targetX = target.getX();
 			targetY = target.getY();
 			targetHeight = target.getHeight();
@@ -163,6 +155,18 @@ public class PlatformController implements Controller {
 			platformTop = groundObject.getY()-(groundObject.getHeight()/2);
 			headY = target.getY()-(target.getHeight()/2);
 			platformBot = groundObject.getY()+(groundObject.getHeight()/2);
+			
+			if (target.hitTest(groundObject)) {				
+				
+				if(platformTop <= footY && footY<groundObjectY){ //foot in platform and character feet is higher than plat center
+					target.setLocation(targetX, groundObject.getY()-(groundObject.getHeight()+target.getHeight())/2);
+					System.out.println(targetY);
+					onPlatform = true;
+				}
+				break;
+				
+			}
+			
 			
 			
 //			if ((targetY +    (targetHeight / 2)) < (groundObjectY + (groundObjectHeight / 2) - 50)

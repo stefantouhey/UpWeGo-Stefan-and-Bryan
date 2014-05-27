@@ -17,6 +17,7 @@ public class GameView extends GContainer {
 			PlatformControlScheme.ARROWS_SPACE, 1, -30, 3);
 	int platNumber=100;
 	public ArrayList<Platform> bob = new ArrayList<Platform>();
+	public ScoreBank scoore = new ScoreBank(0);
 	int k = 2;
 	
 	public GameView() {
@@ -25,21 +26,23 @@ public class GameView extends GContainer {
 		super(new GSprite(ImageCache.forClass(UpWeGo.class).get(
 				"blank.png")));
 		setSize(640,640);
+		InfoAria score = new InfoAria();
+		
 			
 
 		
 		final MovingBackground background = new MovingBackground();
-		addAtCenter(background);
+		addAt(background,0,-640);
 		FrameListener backgroundmovement = new FrameListener() {
 
 			@Override
 			public void invoke(GObject target, Context context) {
 				// TODO Auto-generated method stub
-				target.setLocation(0, target.getY() - protmove.getvy());
+				target.setLocation(0, -30 - protmove.getvy());
 			}
 			
 		};
-		
+		addAt(score, 450, 560);
 		FrameListener Respawn = new FrameListener() {
 
 			@Override
