@@ -157,10 +157,11 @@ public class PlatformController implements Controller {
 			platformBot = groundObject.getY()+(groundObject.getHeight()/2);
 			
 			if (target.hitTest(groundObject)) {				
-				onPlatform = true;
-				if(platformTop <= footY && footY<groundObjectY){
+				
+				if(platformTop <= footY && footY<groundObjectY){ //foot in platform and character feet is higher than plat center
 					target.setLocation(targetX, groundObject.getY()-(groundObject.getHeight()+target.getHeight())/2);
 					System.out.println(targetY);
+					onPlatform = true;
 				}
 				break;
 				
