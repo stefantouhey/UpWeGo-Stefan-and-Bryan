@@ -7,12 +7,17 @@ import jgame.ImageCache;
 import jgame.listener.HitTestListener;
 
 public class Protagonist extends GSprite {
-	public Protagonist() {
+	private int maxBytes;
+	public int currentBytes;
+
+	public Protagonist(int maxBytes) {
 		super(new GSprite(ImageCache.forClass(UpWeGo.class).get(
 				"MAINCHARACTER.png")));
 		this.setSize(35,58);
 //		setAnchorPosition(1,116);
 		setAnchorCenter();
+		boolean healthStatus = false;
+		this.currentBytes = 0;
 		
 		
 		HitTestListener OnTop = new HitTestListener(Platform.class) {
@@ -25,6 +30,9 @@ public class Protagonist extends GSprite {
 			
 		};
 //		addListener(OnTop);
+		if(healthStatus =false){
+			currentBytes--;
+		}
 		
 	}
 	

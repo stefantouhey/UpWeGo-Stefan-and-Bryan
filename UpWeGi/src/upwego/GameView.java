@@ -76,9 +76,15 @@ public class GameView extends GContainer {
 			};
 
 
-		
-		Protagonist THEMAN = new Protagonist();
+	
+		Protagonist THEMAN = new Protagonist(5);
 		addAtCenter(THEMAN);
+		HealthBar heart = new HealthBar();
+		addAt(heart,20,40);
+		HealthBar heart2 = new HealthBar();
+		addAt(heart2,65,40);
+		HealthBar heart3 = new HealthBar();
+		addAt(heart3,110,40);
 		THEMAN.addController(protmove);
 		THEMAN.addListener(Respawn);
 		addListener(platSpawn);
