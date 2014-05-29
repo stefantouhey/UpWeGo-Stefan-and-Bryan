@@ -27,11 +27,9 @@ public class GameView extends GContainer {
 		super(new GSprite(ImageCache.forClass(UpWeGo.class).get(
 				"blank.png")));
 		setSize(640,640);
-		InfoAria score = new InfoAria();
-		
-			
 
-		
+		InfoAria score = new InfoAria(scoore);
+
 		final MovingBackground background = new MovingBackground();
 		addAt(background,0,-640);
 		FrameListener backgroundmovement = new FrameListener() {
@@ -43,7 +41,7 @@ public class GameView extends GContainer {
 			}
 			
 		};
-		addAt(score, 450, 560);
+		
 		FrameListener Respawn = new FrameListener() {
 
 			@Override
@@ -91,7 +89,8 @@ public class GameView extends GContainer {
 		
 		THEMAN.addController(protmove);
 		THEMAN.addListener(Respawn);
-//		addListener(platSpawn);
+		addListener(platSpawn);
+		addAt(score, 340,0);
 		
 		
 	

@@ -1,10 +1,7 @@
 package upwego;
 
-import jgame.Context;
-import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
-import jgame.listener.HitTestListener;
 
 public class HealthBar extends GSprite {
 	public HealthBar() {

@@ -23,11 +23,13 @@ public class UpWeGo extends Game {
 		GRootContainer root = new GRootContainer(Color.GREEN);
 		setRootContainer(root);
 		
+		StartMenu startMenu = new StartMenu();
+		root.addView(View.START, startMenu);
+		
 		GameView gameView = new GameView();
 		root.addView(View.GAME, gameView);
 
-		StartMenu startMenu = new StartMenu();
-		root.addView(View.START, startMenu);
+		
 
 	//	StartMenuAnimation startmenuAnimation = new StartMenuAnimation();
 	//	root.addView(View.STARTANIM, startmenuAnimation);

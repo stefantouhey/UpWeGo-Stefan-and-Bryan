@@ -7,8 +7,6 @@ import jgame.Context;
 import jgame.GContainer;
 import jgame.GMessage;
 import jgame.GObject;
-import jgame.GSprite;
-import jgame.ImageCache;
 import jgame.listener.FrameListener;
 
 public class InfoAria extends GContainer {
@@ -18,7 +16,9 @@ public class InfoAria extends GContainer {
 	private ScoreBank Score;
 
 
-	public void InfoArea(ScoreBank score) {
+
+
+	public InfoAria(ScoreBank score) {
 		this.Score = score;
 
 		setSize(300, 150);

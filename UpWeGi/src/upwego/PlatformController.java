@@ -1,13 +1,11 @@
 package upwego;
 
-import java.awt.geom.Point2D;
 import java.util.List;
 import java.util.Set;
 
 import jgame.Context;
 import jgame.GObject;
 import jgame.controller.Controller;
-import jgame.listener.ParentBoundsListener;
 
 /**
  * A controller that controls an objects location based on keyboard input
@@ -47,25 +45,15 @@ public class PlatformController implements Controller {
 	 */
 	private double maxJump;
 
-	/**
-	 * The gravitational acceleration, in px/frame<sup>2</sup>.
-	 */
-	private boolean onSolidWall;
 	private double gravity;
 	
 	private double targetX;
 	private double targetY;
 	private double targetHeight;
-	private double targetWidth;
-	private double groundObjectX;
 	private double groundObjectY;
-	private double groundObjectHeight;
-	private double groundObjectWidth;
 	private double outOfGround;
 	private double footY;
 	private double platformTop;
-	private double headY;
-	private double platformBot;
 
 	/**
 	 * Creates the controller with the given parameters. The default
@@ -137,33 +125,39 @@ public class PlatformController implements Controller {
 		boolean onPlatform = false;
 		
 
-		List<Platform> Platforms = context
+		List<Platform> platforms = context
 				.getInstancesOfClass(Platform.class);
 
-		for (Platform platform : Platforms) {
-			GObject groundObject = (GObject) platform;
+		for (Platform platform : platforms) {
+
+			Platform groundObject = platform;
 			
 			targetX = target.getX();
 			targetY = target.getY();
 			targetHeight = target.getHeight();
-			targetWidth = target.getWidth();
-			groundObjectX = groundObject.getX();
+			target.getWidth();
+			groundObject.getX();
 			groundObjectY = groundObject.getY(); 
-			groundObjectHeight = groundObject.getHeight();
-			groundObjectWidth = groundObject.getWidth();
+			groundObject.getHeight();
+			groundObject.getWidth();
 			footY = target.getY()+(target.getHeight()/2);
 			platformTop = groundObject.getY()-(groundObject.getHeight()/2);
-			headY = target.getY()-(target.getHeight()/2);
-			platformBot = groundObject.getY()+(groundObject.getHeight()/2);
+
 			
 			if (target.hitTest(groundObject)) {				
 				
-				if(platformTop <= footY+1 && footY<groundObjectY){ //foot in platform and character feet is higher than plat center
-					target.setLocation(targetX, groundObject.getY()-(groundObject.getHeight()+target.getHeight())/2);
+				if(platformTop <= footY+7 && footY<groundObjectY) //foot in platform and character feet is higher than plat center
+				{
+					target.setLocation(targetX, platformTop-(targetHeight/2)+5);
 					System.out.println(targetY);
 					onPlatform = true;
+					if (groundObject.touched) {
+						target.getFirstAncestorOf(GameView.class).scoore.changeBankValue(1);
+						groundObject.touched=false;
+					}
+					break;
 				}
-				break;
+				
 				
 			}
 			
