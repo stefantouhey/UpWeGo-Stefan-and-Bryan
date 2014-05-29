@@ -10,7 +10,7 @@ import jgame.listener.FrameListener;
 import jgame.listener.TimerListener;
 
 public class Platform extends GSprite implements Floor {
-	int framefall = 0;
+	int framefall = 0; 
 	public Platform() {
 		
 	super(new GSprite(ImageCache.forClass(UpWeGo.class).get(
