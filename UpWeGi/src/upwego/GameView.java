@@ -17,6 +17,7 @@ public class GameView extends GContainer {
 			PlatformControlScheme.ARROWS_SPACE, 1, -30, 3);
 	int platNumber=100;
 	public ArrayList<Platform> bob = new ArrayList<Platform>();
+	public ArrayList<GObject> life = new ArrayList<GObject>();
 	public ScoreBank scoore = new ScoreBank(0);
 	int k = 2;
 	
@@ -79,15 +80,15 @@ public class GameView extends GContainer {
 			};
 
 
-	
+			for(int i=0; i<3; i++)
+			{
+			life.add(new HealthBar());
+			addAt((GObject) life.get(i), 20 + (i*45), 40);
+			}
 		Protagonist THEMAN = new Protagonist(5);
 		addAtCenter(THEMAN);
-		HealthBar heart = new HealthBar();
-		addAt(heart,20,40);
-		HealthBar heart2 = new HealthBar();
-		addAt(heart2,65,40);
-		HealthBar heart3 = new HealthBar();
-		addAt(heart3,110,40);
+		
+		
 		THEMAN.addController(protmove);
 		THEMAN.addListener(Respawn);
 		addListener(platSpawn);
