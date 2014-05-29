@@ -40,7 +40,7 @@ public class Platform extends GSprite implements Floor {
 	};
 	
 	addListener(timeplat);
-	addListener(platformmovement);
+//	addListener(platformmovement);
 	BoundaryRemovalListener brl = new BoundaryRemovalListener();
 	addListener(brl);
 

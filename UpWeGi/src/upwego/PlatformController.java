@@ -158,7 +158,7 @@ public class PlatformController implements Controller {
 			
 			if (target.hitTest(groundObject)) {				
 				
-				if(platformTop <= footY && footY<groundObjectY){ //foot in platform and character feet is higher than plat center
+				if(platformTop <= footY+1 && footY<groundObjectY){ //foot in platform and character feet is higher than plat center
 					target.setLocation(targetX, groundObject.getY()-(groundObject.getHeight()+target.getHeight())/2);
 					System.out.println(targetY);
 					onPlatform = true;

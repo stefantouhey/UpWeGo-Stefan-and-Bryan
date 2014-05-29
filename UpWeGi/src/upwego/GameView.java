@@ -90,7 +90,7 @@ public class GameView extends GContainer {
 		addAt(heart3,110,40);
 		THEMAN.addController(protmove);
 		THEMAN.addListener(Respawn);
-		addListener(platSpawn);
+//		addListener(platSpawn);
 		
 		
 	
